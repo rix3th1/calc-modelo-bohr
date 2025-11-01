@@ -58,7 +58,7 @@ class BohrModel:
 class App:
     def __init__(self, root):
         self.root = root
-        root.title("Calculadora Modelo Atómico de Bohr - Guzman Gomez Kevin Alexander")
+        root.title("Calculadora Modelo Atómico de Bohr - Kevin Julián Gómez Oliveros y Alejandro Diaz")
 
         tk.Label(root, text="Número atómico Z (1-118):").grid(row=0, column=0)
         self.Z_entry = tk.Entry(root)
