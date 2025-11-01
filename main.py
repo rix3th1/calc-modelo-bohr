@@ -72,8 +72,8 @@ class App:
         self.n2_entry = tk.Entry(root)
         self.n2_entry.grid(row=2, column=1)
 
-        self.relativista_var = tk.BooleanVar()
-        tk.Checkbutton(root, text="Corrección relativista", variable=self.relativista_var).grid(row=3, column=0, columnspan=2)
+        # self.relativista_var = tk.BooleanVar()
+        # tk.Checkbutton(root, text="Corrección relativista", variable=self.relativista_var).grid(row=3, column=0, columnspan=2)
 
         tk.Button(root, text="Calcular 🧮", command=self.calcular).grid(row=4, column=0)
         tk.Button(root, text="Graficar 📈", command=self.graficar_niveles).grid(row=4, column=1)
@@ -115,7 +115,9 @@ class App:
         try:
             Z, n1, n2 = self.validar()
             model1 = BohrModel(Z, n1)
-            resultados = f"Para n={n1}:\nRadio: {model1.radio():.2e} m\nEnergía: {model1.energia(self.relativista_var.get()):.2f} eV\nVelocidad: {model1.velocidad():.2e} m/s\n"
+            resultados = f"Para n={n1}:\nRadio: {model1.radio():.2e} m\nEnergía: {model1.energia(
+                #self.relativista_var.get()
+            ):.2f} eV\nVelocidad: {model1.velocidad():.2e} m/s\n"
             if n2:
                 delta_E, freq, lambda_nm, serie = BohrModel.transicion(Z, n1, n2)
                 resultados += f"\nTransición {n1}->{n2}:\nΔE: {delta_E:.2f} eV\nFrecuencia: {freq:.2e} Hz\nLongitud de onda: {lambda_nm:.2f} nm ({serie})\n"
